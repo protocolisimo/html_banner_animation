@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @font-face {
+        font-family: "Roboto-Regular"; 
+        src: url("./assets/Roboto-Regular.ttf") format("truetype"); 
+        font-style: normal; 
+        font-weight: normal; 
+    }
+    @font-face {
+        font-family: "Rubik-Medium"; 
+        src: url("./assets/Rubik-Medium.ttf") format("truetype"); 
+        font-style: normal; 
+        font-weight: normal; 
+    }
+    .banner {
+        width: 300px;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+        background-color: #fff;
+    }
+
+    .scene {
+        min-width: 100%;
+        min-height: 100%;
+        position: absolute;
+    }
+        .scene p {
+            color: white;
+            font-family: arial;
+            padding-left: 30px;
+            font-family: 'Rubik-Medium';
+            font-size: 26px;
+        }
+            .scene p.flow-right {
+                transform: translate(-250px, 0);
+                animation: flow-right 14.5s infinite;
+                animation-fill-mode: forwards;
+                animation-delay: .5s;
+            }
+
+            .scene p.flow-left {
+                transform: translate(281px, 0);
+                animation: flow-right2 14.5s infinite;
+                animation-fill-mode: forwards;
+            }
+
+        .scene__bottom {
+            width: 100%;
+            height: 200px;
+            background-color: #002572;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scene.one {
+            background-image: url("./assets/sklad.png");
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: cover;
+            /* display: none; */
+        }
+            .scene.one img {
+                position: absolute;
+                left: 0; right: 0; top: 77px;
+                margin: 0 auto;
+                animation: guy-flow 14.5s infinite;
+            }
+
+        .scene.two {
+            /* display: none; */
+        }
+            .scene.two .scene__bottom {
+                animation: flow-top 14.5s infinite;
+                transform: translate(0px, 150px);
+                animation-fill-mode: forwards;
+            }
+            
+            .scene.two .scene__top {
+                transform: translate(0px, -400px);
+                animation: flow-top2 14.5s infinite;
+                animation-fill-mode: forwards;
+            }
+
+        .scene.three {
+            background-color: #fff;
+            transform: translate(300px, 0);
+            animation: flow-left 14.5s infinite;
+            animation-fill-mode: forwards;
+            /* display: none; */
+        }
+            .scene.three .cursor {
+                position: absolute;
+                transform: translate(300px, 50px);
+                opacity: 1;
+                animation: cursor 14.5s infinite;
+                animation-fill-mode: forwards;
+            }
+                .scene.three .scene__top img {
+                    position: absolute;
+                    top: 180px; left: 0; right: 0;
+                    margin: 0 auto;
+                    animation: flow-top4 14.5s infinite;
+                    transform: translate(0px, -400px);
+                    animation-fill-mode: forwards;
+                }
+
+            .scene.three .scene__bottom {
+                background-color: transparent;
+            }
+
+            .scene.three .scene__bottom p {
+                font-family: 'Roboto-Regular';
+                font-size: 8px;
+                color: black;
+                width: 87%;
+                padding: 0;
+                transform: translate(0px, 300px);
+                animation: flow-top3 14.5s infinite;
+                animation-fill-mode: forwards;
+            }
+                .scene.three .scene__bottom p span {
+                    color: #0084ff;
+                }
+
+            .scene.three .scene__top p.link {
+                font-family: 'Roboto-Regular';
+                font-size: 26px;
+                color: #204185;
+                padding: 0;
+                text-align: center;
+                margin-top: 250px;
+                transform: translate(0px, -400px) scale(1);
+                animation: link 14.5s infinite;
+                animation-fill-mode: forwards;
+            }
+            
+
+    @keyframes guy-flow {
+        0% {
+            top: 125px;
+            transform: scale3d(.7, .7, .7);
+        }
+
+        15% {
+            top: 77px;
+            transform: scale3d(1, 1, 1);
+        }
+
+        40% {
+            top: 77px;
+            transform: scale3d(1, 1, 1);
+        }
+
+        100% {
+            top: 125px;
+            transform: scale3d(.7, .7, .7);
+        }
+    }
+
+    @keyframes flow-right {
+        0% {
+            transform: translate(-250px, 0);
+        }
+
+        15% {
+            transform: translate(0px, 0);
+        }
+
+        40% {
+            transform: translate(0px, 0);
+        }
+
+        100% {
+            transform: translate(-250px, 0);
+        }
+    }
+
+    @keyframes flow-right2 {
+        0% {
+            transform: translate(281px, 0);
+        }
+
+        32% {
+            transform: translate(281px, 0);
+        }
+
+        37% {
+            transform: translate(0px, 0);
+        }
+
+        70% {
+            transform: translate(0px, 0);
+        }
+
+        100% {
+            transform: translate(0px, 0);
+        }
+    }
+
+    @keyframes flow-left {
+        0% {
+            transform: translate(300px, 0);
+        }
+
+        50% {
+            transform: translate(300px, 0);
+        }
+
+        65% {
+            transform: translate(0px, 0);
+        }
+
+        100% {
+            transform: translate(0px, 0);
+        }
+    }
+
+    @keyframes flow-top {
+        0% {
+            transform: translate(0px, 150px);
+        }
+
+        25% {
+            transform: translate(0px, 150px);
+        }
+
+        33% {
+            height: 211px;
+            transform: translate(0px, 0px);
+        }
+
+        99% {
+            height: 211px;
+            transform: translate(0px, 0px);
+        }
+
+        100% {
+            transform: translate(0px, 150px);
+        }
+    }
+
+    @keyframes flow-top2 {
+        0% {
+            transform: translate(0px, -400px);
+        }
+
+        25% {
+            transform: translate(0px, -400px);
+        }
+
+        34% {
+            transform: translate(0px, 0px);
+        }
+
+        99% {
+            transform: translate(0px, 0px);
+        }
+
+        100% {
+            transform: translate(0px, -400px);
+        }
+    }
+
+    @keyframes flow-top3 {
+        0% {
+            transform: translate(0px, 300px);
+        }
+
+        70% {
+            transform: translate(0px, 300px);
+        }
+
+        87% {
+            transform: translate(0px, 0px);
+        }
+
+        100% {
+            transform: translate(0px, 0px);
+        }
+    }
+
+    @keyframes flow-top4 {
+        0% {
+            transform: translate(0px, -400px);
+            opacity: 1;
+        }
+
+        70% {
+            transform: translate(0px, -400px);
+            opacity: 1;
+        }
+
+        75% {
+            transform: translate(0px, 0px);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(0px, 0px);
+            opacity: 1;
+        }
+    }
+
+    @keyframes cursor {
+        0% {
+            transform: translate(300px, 50px);
+            opacity: 1;
+        }
+
+        75% {
+            transform: translate(300px, 50px);
+            opacity: 1;
+        }
+
+        78% {
+            transform: translate(150px, -40px);
+            opacity: 1;
+        }
+
+        84% {
+            transform: translate(150px, -40px);
+            opacity: 1;
+        }
+
+        85% {
+            transform: translate(150px, -40px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(150px, -40px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes link {
+        0% {
+            transform: translate(0px, -400px) scale(1);
+        }
+
+        70% {
+            transform: translate(0px, -400px) scale(1);
+        }
+
+        75% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        85% {
+            transform: translate(0px, 0px) scale(1);
+        }
+        
+        86% {
+            transform: translate(0px, 0px) scale(1.1);
+        }
+
+        90% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+    
+</style>
+<body>
+    <div class="banner">
+        <div class="scene one">
+            <div class="scene__top">
+                <img src="./assets/the-guy.png" alt="guy">
+            </div>
+            <div class="scene__bottom">
+                <p class="flow-right">Инвестиции
+                    в индустриальную
+                    недвижимость</p>
+            </div>
+        </div>
+        <div class="scene two">
+            <div class="scene__top">
+                <img src="./assets/the-guy2.png" alt="guy">
+            </div>
+            <div class="scene__bottom">
+                <p class="flow-left">Доход от арендных
+                    платежей</p>
+            </div>
+        </div>
+        <div class="scene three">
+            <div class="scene__top">
+                <img src="./assets/logo.png" alt="logo">
+                <p class="link">www.pnkrental.ru</p>
+            </div>
+            <div class="cursor"><img src="./assets/cursor.png" alt=""></div>
+            <div class="scene__bottom">
+                <p class="flow-bottom">ООО УК «А класс капитал». Лицензия профессионального участника рынка ценных бумаг на осуществление деятельности по управлению  ценными бумагами No 045-14079-001000 от 12.08.2019, выдана Банком России, без ограничения  срока действия.Ознакомиться с подробной информацией об условиях управления активами, получить сведения об ООО УК «А класс капитал» Вы можете по адресу: 123112, г. Москва, Пресненская набережная, д. 6, стр. 2, эт. 19, пом. I, комн. 7, тел.: 8 (800) 333-76-49 , в сети интернет по адресам: <span>www.pnkrental.ru, www.aclass.capital.</span>
+                    Информация о возможности инвестирования в паевой инвестиционный фонд указана в материале исключительно в рамках описания стратегии управления.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
